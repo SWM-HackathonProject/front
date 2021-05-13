@@ -10,6 +10,17 @@ import {
   useRouteMatch,
   useParams,
 } from "react-router-dom";
+
+import {
+  XYPlot,
+  XAxis,
+  YAxis,
+  VerticalGridLines,
+  HorizontalGridLines,
+  LineSeries,
+  Crosshair,
+} from "react-vis";
+
 import { GetFishInfo } from "./Detail.ctrl";
 
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
@@ -71,23 +82,48 @@ function Child() {
   );
 }
 
+// https://github.com/uber/react-vis/blob/premodern/showcase/axes/dynamic-crosshair.js
 function Chart() {
-  const data = [
-    { x: 0, y: 8 },
-    { x: 1, y: 5 },
-    { x: 2, y: 4 },
-    { x: 3, y: 9 },
-    { x: 4, y: 1 },
-    { x: 5, y: 7 },
-    { x: 6, y: 6 },
-    { x: 7, y: 3 },
-    { x: 8, y: 2 },
-    { x: 9, y: 0 },
+  const DATA = [
+    [
+      { x: 1, y: 10 },
+      { x: 2, y: 7 },
+      { x: 3, y: 15 },
+    ],
+    [
+      { x: 1, y: 20 },
+      { x: 2, y: 5 },
+      { x: 3, y: 15 },
+    ],
   ];
 
+  /**
+   * Event handler for onMouseLeave.
+   * @private
+   */
+  const _onMouseLeave = () => {
+    setState({ crosshairValues: [] });
+  };
+
+  /**
+   * Event handler for onNearestX.
+   * @param {Object} value Selected value.
+   * @param {index} index Index of the value in the data array.
+   * @private
+   */
+  const _onNearestX = (value, { index }) => {
+    setState({ crosshairValues: DATA.map((d) => d[index]) });
+  };
+
   return (
-    <XYPlot height={200} width={200}>
-      <LineSeries data={data} />
+    <XYPlot onMouseLeave={_onMouseLeave} width={300} height={300}>
+      <VerticalGridLines />
+      <HorizontalGridLines />
+      <XAxis />
+      <YAxis />
+      <LineSeries onNearestX={_onNearestX} data={DATA[0]} />
+      <LineSeries data={DATA[1]} />
+      <Crosshair values={state.crosshairValues} className={"test-class-name"} />
     </XYPlot>
   );
 }
