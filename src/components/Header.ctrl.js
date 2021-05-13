@@ -26,6 +26,8 @@ const GetFishes = () => {
     },
   ];
 
+  console.log("getfish");
+
   return fishes;
 };
 

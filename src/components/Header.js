@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useMemo } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Input } from "antd";
@@ -16,7 +16,9 @@ import AutoComplete from "./AutoComplete";
 import { GetFishes } from "./Header.ctrl";
 
 const Header = () => {
+  const fishList = useMemo(() => GetFishes(), []);
   const [focusInput, setFocusInput] = useState(false);
+  const [text, setText] = useState("");
 
   const onFocusInput = () => {
     setFocusInput(true);
@@ -24,6 +26,10 @@ const Header = () => {
 
   const onBlurInput = () => {
     setFocusInput(false);
+  };
+
+  const onTextChange = (event) => {
+    setText(event.target.value);
   };
 
   return (
@@ -34,12 +40,13 @@ const Header = () => {
       <SearchBarContainer>
         <SearchBar
           placeholder='어종을 검색하세요.'
+          onChange={onTextChange}
           onFocus={onFocusInput}
           onBlur={onBlurInput}
         />
         {focusInput ? (
           <AbsoluteContainer>
-            <AutoComplete />
+            <AutoComplete text={text} fishList={fishList} />
           </AbsoluteContainer>
         ) : null}
       </SearchBarContainer>
@@ -165,7 +172,7 @@ const LinkText = styled(Link)`
 const AbsoluteContainer = styled.div`
   position: absolute;
   z-index: 2;
-  background-color: red;
+  background-color: cyan;
   top: 60px;
   width: 100%;
 

@@ -1,18 +1,20 @@
-import React from "react";
-import styled from "styled-components"
+/** @format */
 
-const AutoComplete = () => {
+import React, { useMemo } from "react";
+import styled from "styled-components";
 
-    return (
-        <Container>
+import { GetAutocompleteList } from "./AutoComplete.ctrl";
+import { apiURL } from "../settings";
 
-        </Container>
-    )
-}
+const AutoComplete = ({ text, fishList }) => {
+  return GetAutocompleteList(fishList, text).map((fish) => (
+    <Container>{fish.name}</Container>
+  ));
+};
 
 const Container = styled.div`
-    width: 100%;
-    height: 100px;
-`
+  width: 100%;
+  height: 100px;
+`;
 
 export default AutoComplete;
