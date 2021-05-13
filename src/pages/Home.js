@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Card from "../components/Card";
+import MapCard from "../components/MapCard";
 import ImageCard from "../components/ImageCard";
 import DefaultImage from "../images/fish.jpg";
 
@@ -21,6 +22,21 @@ const Home = () => {
             src: DefaultImage,
             name: "볼락",
             text: "제철시기: 3~5월",
+        },
+    ];
+
+    let mapDataList = [
+        {
+            title : "노량진 수산시장",
+            id : 1,
+            x: 37.515374770078076,
+            y: 126.94091604229841,
+        },
+        {
+            title : "가락시장",
+            id : 2,
+            x: 37.493553892431166,
+            y: 127.10977834044834,
         },
     ];
 
@@ -48,6 +64,13 @@ const Home = () => {
         </Container>
     );
 
+    const mapList = mapDataList.map((data) =>
+        <Container>
+            <MapCard title={data.title} id={data.id} x={data.x} y={data.y}/>
+            <HeightSpace/>
+        </Container>
+    );
+
     const rankingList = rankingDataList.map((data) =>
         <Container>
             <Card title={data.name} children={data.price + '원/kg'}/>
@@ -65,8 +88,8 @@ const Home = () => {
                 </ColumnContainer>
                 <WidthSpace/>
                 <ColumnContainer >
-                    <CategoryContainer title="이달의 생선!">
-
+                    <CategoryContainer title="수산시장">
+                        {mapList}
                     </CategoryContainer>
                 </ColumnContainer>
                 <WidthSpace/>
@@ -76,6 +99,7 @@ const Home = () => {
                     </CategoryContainer>
                 </ColumnContainer>
             </ContentContainer>
+            <HeightSpace/>
         </Container>
     )
 }
