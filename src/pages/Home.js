@@ -41,7 +41,9 @@ const Home = () => {
 
     const recommendList = recommendDataList.map((data) =>
         <Container>
-            <ImageCard src={data.src} title={data.name} children={data.text}/>
+            <ImageCard src={data.src} title={data.name}>
+                {data.text}
+            </ImageCard>
             <HeightSpace/>
         </Container>
     );
@@ -85,11 +87,19 @@ const ContentContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    @media only screen and (max-width: 1000px) {
+        flex-direction: column;
+    }
 `
 
 const ColumnContainer = styled.div`
     margin-top: 30px;
     width: 30vw;
+
+    @media only screen and (max-width: 1000px) {
+        width: 90%;
+    }
 `
 
 const CategoryContainer = styled(Card)`

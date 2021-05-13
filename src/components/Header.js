@@ -1,11 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Input } from "antd";
 
 const Header = () => {
     return (
         <Container>
+            <LogoArea>
+                <Logo src="https://swmaestro.org/static/sw/images/logo_w.png" />
+            </LogoArea>
             <SearchBar placeholder="어종을 검색하세요." />
+            <LinkArea>
+                <LinkText to='/'>홈</LinkText>
+            </LinkArea>
         </Container>
     )
 }
@@ -14,10 +21,14 @@ const Container = styled.div`
     width: 100%;
     height: 90px;
     background-color: skyblue;
-    align-content: center;
+    align-content: space-around;
     display: flex;
     justify-content: center;
     position: relative;
+    background-image: url("https://i.pinimg.com/736x/da/90/2d/da902defe491c20a8ebde6c7207276fd.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     
     ::before {
         content: "";
@@ -46,8 +57,19 @@ const Container = styled.div`
     }
 `
 
+const LogoArea = styled.div`
+    padding: 18px 50px 0px 18px;
+
+    @media only screen and (max-width: 1000px) {
+        display: none;
+    }
+`
+
+const Logo = styled.img`
+`
+
 const SearchBar = styled(Input)`
-    width: 50vw;
+    width: 100%;
     height: 40px;
     border-radius: 5px;
     border-style: solid;
@@ -58,6 +80,27 @@ const SearchBar = styled(Input)`
     :focus {
         outline: none;
     }
+
+    @media only screen and (max-width: 1000px) {
+        width: 80%;
+    }
+`
+
+const LinkArea = styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin: 25px 100px 0px 100px;
+
+    @media only screen and (max-width: 1000px) {
+        display: none;
+    }
+`
+
+const LinkText = styled(Link)`
+    color: white;
+    font-weight: bold;
 `
 
 export default Header;
