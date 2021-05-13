@@ -2,6 +2,7 @@
 
 import DefaultImage from "../images/fish.jpg";
 import { apiURL } from "../settings";
+import axios from "axios";
 
 // 임시
 const GetRankings = () => {
