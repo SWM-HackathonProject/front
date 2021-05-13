@@ -1,20 +1,10 @@
 /** @format */
 
-import React from "react";
+import React, { useState, Suspense } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Input } from "antd";
-
 import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBBtn,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -22,14 +12,36 @@ import {
   MDBDropdownLink,
 } from "mdb-react-ui-kit";
 
+import AutoComplete from "./AutoComplete";
+
 const Header = () => {
+  const [focusInput, setFocusInput] = useState(false);
+
+  const onFocusInput = () => {
+    setFocusInput(true);
+  };
+
+  const onBlurInput = () => {
+    setFocusInput(false);
+  };
+
   return (
     <Container>
       <LogoArea>
         <Logo src='https://swmaestro.org/static/sw/images/logo_w.png' />
       </LogoArea>
-      <SearchBar placeholder='어종을 검색하세요.' />
-
+      <SearchBarContainer>
+        <SearchBar
+          placeholder='어종을 검색하세요.'
+          onFocus={onFocusInput}
+          onBlur={onBlurInput}
+        />
+        {focusInput ? (
+          <AbsoluteContainer>
+            <AutoComplete />
+          </AbsoluteContainer>
+        ) : null}
+      </SearchBarContainer>
       <MDBDropdown>
         <LinkArea>
           <MDBDropdownToggle tag='a' className='nav-link'>
@@ -107,6 +119,13 @@ const LogoArea = styled.div`
 
 const Logo = styled.img``;
 
+const SearchBarContainer = styled.div`
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  position: relative;
+`;
+
 const SearchBar = styled(Input)`
   width: 100%;
   height: 40px;
@@ -140,6 +159,18 @@ const LinkArea = styled.div`
 const LinkText = styled(Link)`
   color: white;
   font-weight: bold;
+`;
+
+const AbsoluteContainer = styled.div`
+  position: absolute;
+  z-index: 2;
+  background-color: red;
+  top: 60px;
+  width: 100%;
+
+  @media only screen and (max-width: 1000px) {
+    width: 80%;
+  }
 `;
 
 export default Header;
