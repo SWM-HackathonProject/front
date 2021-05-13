@@ -3,6 +3,7 @@
 import DefaultImage from "../images/fish.jpg";
 import { apiURL } from "../settings";
 
+// 임시
 const GetFishInfo = (idx) => {
   var fish = [
     {
@@ -26,7 +27,7 @@ const GetFishInfo = (idx) => {
 };
 
 // const GetFishInfo = async (idx) => {
-//   const response = await axios.get(`${apiURL}/musicList/${idx}`);
+//   const response = await axios.get(`${apiURL}/detail/${idx}`);
 //   return response.data;
 // };
 
