@@ -2,7 +2,7 @@
 
 import React, { useState, Suspense, useMemo } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Input } from "antd";
 import {
   MDBDropdown,
@@ -13,12 +13,14 @@ import {
 } from "mdb-react-ui-kit";
 
 import AutoComplete from "./AutoComplete";
+import { GetAutocompleteList } from "./AutoComplete.ctrl";
 import { GetFishes } from "./Header.ctrl";
 
 const Header = () => {
   const fishList = useMemo(() => GetFishes(), []);
   const [focusInput, setFocusInput] = useState(false);
   const [text, setText] = useState("");
+  const history = useHistory();
 
   const onFocusInput = () => {
     setFocusInput(true);
@@ -32,6 +34,16 @@ const Header = () => {
     setText(event.target.value);
   };
 
+  const onKeyPress = (event) => {
+    console.log(event.key);
+    if (text) {
+      const autoCompleteList = GetAutocompleteList(fishList, text);
+      if (event.key == "Enter" && autoCompleteList.length) {
+        history.push(`/detail/${autoCompleteList[0].fishCode}`);
+      }
+    }
+  };
+
   return (
     <Container>
       <LogoArea>
@@ -41,6 +53,7 @@ const Header = () => {
         <SearchBar
           placeholder='어종을 검색하세요.'
           onChange={onTextChange}
+          onKeyPress={onKeyPress}
           onFocus={onFocusInput}
           onBlur={onBlurInput}
         />

@@ -9,7 +9,7 @@ const GetAutocompleteList = (fishList, str) => {
 
   str = str.trim();
 
-  return fishList.filter((fish) => fish.name.includes(str));
+  return fishList.filter((fish) => fish.fishName.includes(str));
 };
 
 export { GetAutocompleteList };

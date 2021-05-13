@@ -8,21 +8,21 @@ const GetFishes = () => {
   var fishes = [
     {
       fishCode: 0,
-      src: DefaultImage,
-      name: "참돔",
-      text: "제철시기: 3~5월",
+      fishName: "참돔",
+      description: "제철시기: 3~5월",
+      imageURL: DefaultImage,
     },
     {
       fishCode: 1,
-      src: DefaultImage,
-      name: "숭어",
-      text: "제철시기: 3~5월",
+      fishName: "숭어",
+      description: "제철시기: 3~5월",
+      imageURL: DefaultImage,
     },
     {
       fishCode: 2,
-      src: DefaultImage,
-      name: "볼락",
-      text: "제철시기: 3~5월",
+      fishName: "볼락",
+      description: "제철시기: 3~5월",
+      imageURL: DefaultImage,
     },
   ];
 

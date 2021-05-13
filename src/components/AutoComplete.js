@@ -8,7 +8,7 @@ import { apiURL } from "../settings";
 
 const AutoComplete = ({ text, fishList }) => {
   return GetAutocompleteList(fishList, text).map((fish) => (
-    <Container>{fish.name}</Container>
+    <Container>{fish.fishName}</Container>
   ));
 };
 

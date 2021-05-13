@@ -9,7 +9,7 @@ const GetFishInfo = (fishCode) => {
     {
       fishCode: 0,
       fishName: "참돔",
-      avgPrice: [
+      price: [
         {
           yearMonth: 202101,
           price: 10000,
@@ -29,14 +29,13 @@ const GetFishInfo = (fishCode) => {
           price: 10000,
         },
       ],
-      imgURL: DefaultImage,
+      imageURL: DefaultImage,
       description: "제철시기: 3~5월",
-      tip: "고르는 팁",
     },
     {
       fishCode: 1,
       fishName: "숭어",
-      avgPrice: [
+      price: [
         {
           yearMonth: 202101,
           price: 10000,
@@ -56,14 +55,13 @@ const GetFishInfo = (fishCode) => {
           price: 10000,
         },
       ],
-      imgURL: DefaultImage,
+      imageURL: DefaultImage,
       description: "제철시기: 3~5월",
-      tip: "고르는 팁",
     },
     {
       fishCode: 2,
       fishName: "볼락",
-      avgPrice: [
+      price: [
         {
           yearMonth: 202101,
           price: 10000,
@@ -83,9 +81,8 @@ const GetFishInfo = (fishCode) => {
           price: 10000,
         },
       ],
-      imgURL: DefaultImage,
+      imageURL: DefaultImage,
       description: "제철시기: 3~5월",
-      tip: "고르는 팁",
     },
   ][fishCode];
 

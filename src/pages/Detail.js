@@ -57,13 +57,13 @@ function Child() {
     <MDBContainer>
       <MDBRow>
         <MDBCol>
-          <ImageCard src={fish.imgURL} />
+          <ImageCard src={fish.imageURL} />
         </MDBCol>
         <MDBCol>
           <ImageCard title={fish.fishName} children={fish.description} />
         </MDBCol>
       </MDBRow>
-      <MDBRow>{fish.tip}</MDBRow>
+      <MDBRow>{fish.description}</MDBRow>
     </MDBContainer>
   );
 }
