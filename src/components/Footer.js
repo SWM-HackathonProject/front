@@ -11,7 +11,7 @@ export default function App() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
         &copy; {new Date().getFullYear()} Copyright:{" "}
         <a className='text-dark' href='https://github.com/SWM-HackathonProject'>
-          SWM-HackathonProject
+          파닥파닥 낚였닥
         </a>
       </div>
     </MDBFooter>
