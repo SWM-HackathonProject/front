@@ -1,12 +1,7 @@
 /** @format */
 
 import React from "react";
-
-import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
-
-import DefaultImage from "../images/fish.jpg";
-import ImageCard from "../components/ImageCard";
-
+import { useAsync } from "react-async";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +10,11 @@ import {
   useRouteMatch,
   useParams,
 } from "react-router-dom";
+import { GetFishInfo } from "./Detail.ctrl";
+
+import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
+
+import ImageCard from "../components/ImageCard";
 
 const Detail = () => {
   let match = useRouteMatch();
@@ -26,7 +26,7 @@ const Detail = () => {
           <Child />
         </Route>
         <Route path='/'>
-          <NotFounded />
+          <Default />
         </Route>
       </Switch>
     </Router>
@@ -36,25 +36,22 @@ const Detail = () => {
 function Child() {
   let { idx } = useParams();
 
-  let fish = [
-    {
-      src: DefaultImage,
-      name: "참돔",
-      text: "제철시기: 3~5월",
-    },
-    {
-      src: DefaultImage,
-      name: "숭어",
-      text: "제철시기: 3~5월",
-    },
-    {
-      src: DefaultImage,
-      name: "볼락",
-      text: "제철시기: 3~5월",
-    },
-  ][idx];
+  let fish = GetFishInfo(idx);
 
-  if (!fish) return <h2>없는 물고기 입니다.</h2>;
+  // const {
+  //   isLoading,
+  //   data: fish,
+  //   error,
+  //   reload,
+  // } = useAsync({
+  //   promiseFn: GetFishInfo,
+  //   idx,
+  //   watch: idx,
+  // });
+
+  // if (isLoading) return Loading();
+  // if (error) return Err();
+  // if (!fish) return NotFounded();
 
   return (
     <MDBContainer>
@@ -66,12 +63,24 @@ function Child() {
           <ImageCard title={fish.name} children={fish.text} />
         </MDBCol>
       </MDBRow>
-      <MDBRow>상세한 내용들</MDBRow>
+      <MDBRow>{fish.text}</MDBRow>
     </MDBContainer>
   );
 }
 
+function Loading() {
+  return <div>로딩중...</div>;
+}
+
+function Err() {
+  return <div>에러가 발생했습니다.</div>;
+}
+
 function NotFounded() {
+  return <h2>없는 물고기 입니다.</h2>;
+}
+
+function Default() {
   return <h2>물고기의 상세정보를 보여줍니다.</h2>;
 }
 
