@@ -6,27 +6,13 @@ import styled from "styled-components";
 import Card from "../components/Card";
 import MapCard from "../components/MapCard";
 import ImageCard from "../components/ImageCard";
-import DefaultImage from "../images/fish.jpg";
 
-import { GetRankings, GetRecommendations } from "./Home.ctrl";
+import { GetRankings, GetRecommendations, GetMaps } from "./Home.ctrl";
 
 const Home = () => {
     let recommendDataList = GetRecommendations();
     let rankingDataList = GetRankings();
-    let mapDataList = [
-        {
-            title : "노량진 수산시장",
-            id : 1,
-            x: 37.515374770078076,
-            y: 126.94091604229841,
-        },
-        {
-            title : "가락시장",
-            id : 2,
-            x: 37.493553892431166,
-            y: 127.10977834044834,
-        },
-    ];
+    let mapDataList = GetMaps();
 
     const recommendList = recommendDataList.map((data) => (
         <Container>
