@@ -3,7 +3,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import styled from "styled-components";
-import { Drawer } from "antd"
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -13,24 +12,35 @@ import Detail from "./pages/Detail";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path='/detail'>
-          <Detail />
-        </Route>
-        <Route path='/about'>
-          <About />
-        </Route>
-        <Route path='/'>
-          <Header />
-          <Home />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
+    <Container>
+      <Router>
+        <Header />
+        <ContentContainer>
+          <Switch>
+            <Route path='/detail'>
+              <Detail />
+            </Route>
+            <Route path='/about'>
+              <About />
+            </Route>
+            <Route path='/'>
+              <Home />
+            </Route>
+          </Switch>
+        </ContentContainer>
+        <Footer />
+      </Router>
+    </Container>
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ContentContainer = styled.div`
+  margin-bottom: 50px;
+`;
 
 export default App;
