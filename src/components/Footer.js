@@ -10,7 +10,7 @@ export default function App() {
         className='text-center p-3'
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
         &copy; {new Date().getFullYear()} Copyright:{" "}
-        <a className='text-dark' href='https://github.com/SWM-HackathonProject'>
+        <a className='text-dark' href='/about'>
           파닥파닥 낚였닥
         </a>
       </div>
