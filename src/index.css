@@ -1,10 +1,10 @@
 /** @format */
 
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif, Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Jeju Gothic', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
