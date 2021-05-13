@@ -1,0 +1,5 @@
+/** @format */
+
+const apiURL = "YOUR API URL";
+
+export {apiURL}
