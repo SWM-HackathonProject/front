@@ -2,25 +2,51 @@ import React from "react";
 import styled from "styled-components";
 
 import Card from "../components/Card";
+import ImageCard from "../components/ImageCard";
+import DefaultImage from "../images/fish.jpg";
 
 const Home = () => {
+    let dataList = [
+        {
+            src: DefaultImage,
+            name: "참돔",
+            text: "제철시기: 3~5월",
+        },
+        {
+            src: DefaultImage,
+            name: "숭어",
+            text: "제철시기: 3~5월",
+        },
+        {
+            src: DefaultImage,
+            name: "볼락",
+            text: "제철시기: 3~5월",
+        },
+    ];
+
+    const imageCardList = dataList.map((data) =>
+        <Container>
+            <ImageCard src={data.src} title={data.name} children={data.text}>
+            </ImageCard>
+            <HeightSpace/>
+        </Container>
+    );
+
     return (
         <Container>
             <ContentContainer>
                 <ColumnContainer>
                     <CategoryContainer title="이달의 생선!">
-                        <CardContainer title="광어">
-                            saddasdas
-                        </CardContainer>
+                        {imageCardList}
                     </CategoryContainer>
                 </ColumnContainer>
-                <Space/>
+                <WidthSpace/>
                 <ColumnContainer >
                     <CategoryContainer title="이달의 생선!">
 
                     </CategoryContainer>
                 </ColumnContainer>
-                <Space />
+                <WidthSpace/>
                 <ColumnContainer>
                     <CategoryContainer title="이달의 생선!">
 
@@ -45,13 +71,15 @@ const ColumnContainer = styled.div`
     width: 30vw;
 `
 
-const CategoryContainer = styled(Card)``
-
-const CardContainer = styled(Card)`
+const CategoryContainer = styled(Card)`
 `
 
-const Space = styled.div`
+const WidthSpace = styled.div`
     width: 2vw;
+`
+
+const HeightSpace = styled.div`
+    height: 1vw;
 `
 
 export default Home;
