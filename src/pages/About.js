@@ -13,7 +13,9 @@ import {
 
 export default function About() {
   return (
-    <div className='bg-image '>
+    <div
+      className='bg-image '
+      style={{ backgroundColor: "rgba(143, 47, 31, 0.7)" }}>
       <img
         src='https://mdbootstrap.com/img/Photos/Others/images/76.jpg'
         className='img-fluid'

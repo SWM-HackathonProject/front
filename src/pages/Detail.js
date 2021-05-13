@@ -55,14 +55,40 @@ function Child() {
     <MDBContainer>
       <MDBRow>
         <MDBCol>
-          <ImageCard src={`/fishImg/${fish.imageURL}.jpeg`} />
+          <MDBRow center>
+            <div>{fish.fishName}</div>
+          </MDBRow>
+          <MDBRow>
+            <ImageCard src={`/fishImg/${fish.imageURL}.jpeg`} />
+          </MDBRow>
         </MDBCol>
         <MDBCol>
-          <ImageCard title={fish.fishName} children={fish.description} />
+          <Chart data={fish.prices} />
         </MDBCol>
       </MDBRow>
       <MDBRow>{fish.description}</MDBRow>
     </MDBContainer>
+  );
+}
+
+function Chart() {
+  const data = [
+    { x: 0, y: 8 },
+    { x: 1, y: 5 },
+    { x: 2, y: 4 },
+    { x: 3, y: 9 },
+    { x: 4, y: 1 },
+    { x: 5, y: 7 },
+    { x: 6, y: 6 },
+    { x: 7, y: 3 },
+    { x: 8, y: 2 },
+    { x: 9, y: 0 },
+  ];
+
+  return (
+    <XYPlot height={200} width={200}>
+      <LineSeries data={data} />
+    </XYPlot>
   );
 }
 
