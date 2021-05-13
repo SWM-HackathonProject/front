@@ -1,12 +1,21 @@
-import { Layout, Header } from "antd";
+import styled from "styled-components";
+
 import Home from "../src/pages/Home";
+
+import Header from "./components/Header"
 
 function App() {
   return (
-    <Home>
+    <Container>
+      <Header />
+      <Home>
       
-    </Home>
+      </Home>
+    </Container>
+
   );
 }
+
+const Container = styled.div``
 
 export default App;
