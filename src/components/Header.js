@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useState, Suspense, useMemo } from "react";
+import { useAsync } from "react-async";
 import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
 import { Input } from "antd";
@@ -17,10 +18,20 @@ import { GetAutocompleteList } from "./AutoComplete.ctrl";
 import { GetFishes } from "./Header.ctrl";
 
 const Header = () => {
-  const fishList = useMemo(() => GetFishes(), []);
   const [focusInput, setFocusInput] = useState(false);
   const [text, setText] = useState("");
   const history = useHistory();
+  const {
+    isLoading,
+    data: fishList,
+    error,
+    reload,
+  } = useAsync({
+    promiseFn: GetFishes,
+  });
+
+  if (isLoading) return Loading();
+  if (error) return Err();
 
   const onFocusInput = () => {
     setFocusInput(true);
@@ -83,6 +94,14 @@ const Header = () => {
     </Container>
   );
 };
+
+function Loading() {
+  return <div>로딩중...</div>;
+}
+
+function Err() {
+  return <div>에러가 발생했습니다.</div>;
+}
 
 const Container = styled.div`
   width: 100%;

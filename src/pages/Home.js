@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Card from "../components/Card";
@@ -10,9 +10,12 @@ import ImageCard from "../components/ImageCard";
 import { GetRankings, GetRecommendations, GetMaps } from "./Home.ctrl";
 
 const Home = () => {
+  const [mapDataList, setMapData] = useState([]);
+
   let recommendDataList = GetRecommendations();
   let rankingDataList = GetRankings();
-  let mapDataList = GetMaps();
+
+  GetMaps().then((data) => setMapData(data));
 
   const recommendList = recommendDataList.map((data) => (
     <Container>
