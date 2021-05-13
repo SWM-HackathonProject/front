@@ -1,5 +1,6 @@
 /** @format */
 
 const apiURL = "YOUR API URL";
+const appKey = "YOUR APP KEY";
 
-export {apiURL}
+export { apiURL, appKey };
