@@ -25,6 +25,10 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
+    background-image: url("https://i.pinimg.com/736x/da/90/2d/da902defe491c20a8ebde6c7207276fd.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     
     ::before {
         content: "";
