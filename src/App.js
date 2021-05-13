@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 import Home from "../src/pages/Home";
 import About from "./pages/About";
-// import Detail from "./pages/Detail";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
@@ -17,9 +17,9 @@ function App() {
         <Header />
         <ContentContainer>
           <Switch>
-            {/* <Route path='/detail'>
+            <Route path='/detail'>
               <Detail />
-            </Route> */}
+            </Route>
             <Route path='/about'>
               <About />
             </Route>
@@ -31,17 +31,16 @@ function App() {
         <Footer />
       </Router>
     </Container>
-   
   );
 }
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 const ContentContainer = styled.div`
   margin-bottom: 50px;
-`
+`;
 
 export default App;

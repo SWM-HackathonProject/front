@@ -22,7 +22,7 @@ const Detail = () => {
   return (
     <Router>
       <Switch>
-        <Route path={`${match.path}/:idx`}>
+        <Route path={`${match.path}/:fishCode`}>
           <Child />
         </Route>
         <Route path='/'>
@@ -34,9 +34,9 @@ const Detail = () => {
 };
 
 function Child() {
-  let { idx } = useParams();
+  let { fishCode } = useParams();
 
-  let fish = GetFishInfo(idx);
+  let fish = GetFishInfo(fishCode);
 
   // const {
   //   isLoading,
@@ -45,13 +45,13 @@ function Child() {
   //   reload,
   // } = useAsync({
   //   promiseFn: GetFishInfo,
-  //   idx,
-  //   watch: idx,
+  //   fishCode,
+  //   watch: fishCode,
   // });
 
   // if (isLoading) return Loading();
   // if (error) return Err();
-  // if (!fish) return NotFounded();
+  if (!fish) return NotFounded();
 
   return (
     <MDBContainer>

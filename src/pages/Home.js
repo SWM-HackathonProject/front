@@ -16,7 +16,7 @@ const Home = () => {
   const recommendList = recommendDataList.map((data) => (
     <Container>
       <ImageCard src={data.src} title={data.name}>
-        {data.text}
+        {data.description}
       </ImageCard>
       <HeightSpace />
     </Container>

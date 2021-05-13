@@ -7,21 +7,24 @@ import { apiURL } from "../settings";
 const GetRankings = () => {
   var rankings = [
     {
-      src: DefaultImage,
+      fishCode: 0,
       name: "참돔",
-      text: "랭킹 1등",
+      src: DefaultImage,
+      description: "랭킹 1등",
       price: 100,
     },
     {
-      src: DefaultImage,
+      fishCode: 1,
       name: "숭어",
-      text: "랭킹 2등",
+      src: DefaultImage,
+      description: "랭킹 2등",
       price: 200,
     },
     {
-      src: DefaultImage,
+      fishCode: 2,
       name: "볼락",
-      text: "랭킹 3등",
+      src: DefaultImage,
+      description: "랭킹 3등",
     },
   ];
 
@@ -37,19 +40,22 @@ const GetRankings = () => {
 const GetRecommendations = () => {
   var recommendations = [
     {
-      src: DefaultImage,
+      fishCode: 0,
       name: "참돔",
-      text: "추천 1",
+      src: DefaultImage,
+      description: "추천 1",
     },
     {
-      src: DefaultImage,
+      fishCode: 1,
       name: "숭어",
-      text: "추천 2",
+      src: DefaultImage,
+      description: "추천 2",
     },
     {
-      src: DefaultImage,
+      fishCode: 2,
       name: "볼락",
-      text: "추천 3",
+      src: DefaultImage,
+      description: "추천 3",
     },
   ];
 

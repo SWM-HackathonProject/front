@@ -13,6 +13,7 @@ import {
 } from "mdb-react-ui-kit";
 
 import AutoComplete from "./AutoComplete";
+import { GetFishes } from "./Header.ctrl";
 
 const Header = () => {
   const [focusInput, setFocusInput] = useState(false);
