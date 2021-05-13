@@ -6,7 +6,7 @@ import ImageCard from "../components/ImageCard";
 import DefaultImage from "../images/fish.jpg";
 
 const Home = () => {
-    let dataList = [
+    let recommendDataList = [
         {
             src: DefaultImage,
             name: "참돔",
@@ -24,10 +24,31 @@ const Home = () => {
         },
     ];
 
-    const imageCardList = dataList.map((data) =>
+    let rankingDataList = [
+        {
+            name: "참돔",
+            price: 40000,
+        },
+        {
+            name: "넙치",
+            price: 30000,
+        },
+        {
+            name: "볼락",
+            price: 20000,
+        },
+    ];
+
+    const recommendList = recommendDataList.map((data) =>
         <Container>
-            <ImageCard src={data.src} title={data.name} children={data.text}>
-            </ImageCard>
+            <ImageCard src={data.src} title={data.name} children={data.text}/>
+            <HeightSpace/>
+        </Container>
+    );
+
+    const rankingList = rankingDataList.map((data) =>
+        <Container>
+            <Card title={data.name} children={data.price + '원/kg'}/>
             <HeightSpace/>
         </Container>
     );
@@ -37,7 +58,7 @@ const Home = () => {
             <ContentContainer>
                 <ColumnContainer>
                     <CategoryContainer title="이달의 생선!">
-                        {imageCardList}
+                        {recommendList}
                     </CategoryContainer>
                 </ColumnContainer>
                 <WidthSpace/>
@@ -48,8 +69,8 @@ const Home = () => {
                 </ColumnContainer>
                 <WidthSpace/>
                 <ColumnContainer>
-                    <CategoryContainer title="이달의 생선!">
-
+                    <CategoryContainer title="인기 어종 시세">
+                        {rankingList}
                     </CategoryContainer>
                 </ColumnContainer>
             </ContentContainer>
