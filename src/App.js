@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Home from "../src/pages/Home";
 import About from "./pages/About";
@@ -13,20 +15,7 @@ import Detail from "./pages/Detail";
 function App() {
   return (
     <Router>
-      {/* 상단 네비바 */}
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-          <li>
-            <Link to='/detail'>Detail</Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
 
       <Switch>
         <Route path='/detail'>
@@ -40,6 +29,8 @@ function App() {
           <Home />
         </Route>
       </Switch>
+
+      <Footer />
     </Router>
   );
 }
