@@ -39,7 +39,7 @@
 - 고범석 : [**@kobeomseok95**](https://github.com/kobeomseok95)
 - 이찬우 : [**@chanwooleeme**](https://github.com/chanwooleeme)
 - 정승우 : [**@W1nU**](https://github.com/W1nU)
-- 한영구 : [**@hd1534**](https://github.com/hd1534)
+- 한영규 : [**@gksdudrb922**](https://github.com/gksdudrb922)
 
 ---
 
