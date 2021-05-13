@@ -36,21 +36,19 @@ const Detail = () => {
 function Child() {
   let { fishCode } = useParams();
 
-  let fish = GetFishInfo(fishCode);
+  const {
+    isLoading,
+    data: fish,
+    error,
+    reload,
+  } = useAsync({
+    promiseFn: GetFishInfo,
+    fishCode,
+    watch: fishCode,
+  });
 
-  // const {
-  //   isLoading,
-  //   data: fish,
-  //   error,
-  //   reload,
-  // } = useAsync({
-  //   promiseFn: GetFishInfo,
-  //   fishCode,
-  //   watch: fishCode,
-  // });
-
-  // if (isLoading) return Loading();
-  // if (error) return Err();
+  if (isLoading) return Loading();
+  if (error) return Err();
   if (!fish) return NotFounded();
 
   return (

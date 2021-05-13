@@ -33,8 +33,6 @@ const Header = () => {
   if (isLoading) return Loading();
   if (error) return Err();
 
-  // const fishList = useMemo(() => GetFishes(), []);
-
   const onFocusInput = () => {
     setFocusInput(true);
   };

@@ -68,29 +68,9 @@ const GetRecommendations = () => {
 //   return response.data;
 // };
 
-// 임시
-const GetMaps = () => {
-  var maps = [
-    {
-      title: "노량진 수산시장",
-      id: 1,
-      x: 37.515374770078076,
-      y: 126.94091604229841,
-    },
-    {
-      title: "가락시장",
-      id: 2,
-      x: 37.493553892431166,
-      y: 127.10977834044834,
-    },
-  ];
-
-  return maps;
+const GetMaps = async () => {
+  const response = await axios.get(`${apiURL}/maps`);
+  return response.data;
 };
-
-// const GetMaps = async () => {
-//   const response = await axios.get(`${apiURL}/maps`);
-//   return response.data;
-// };
 
 export { GetRankings, GetRecommendations, GetMaps };
