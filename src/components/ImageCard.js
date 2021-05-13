@@ -4,14 +4,18 @@ import styled from "styled-components"
 const ImageCard = ({ src, title, children }) => {
     return (
         <CardContainer>
-            <ImageSlot src = {src}/>
             <CardHeader>
                 <Title>
                     {title}
                 </Title>
             </CardHeader>
             <CardBody>
-                {children}
+                <ImageAreaContainter>
+                    <ImageSlot src={src}/>
+                </ImageAreaContainter>
+                <TextAreaContainer>
+                    {children}
+                </TextAreaContainer>
             </CardBody>
         </CardContainer>
     )
@@ -25,8 +29,17 @@ const CardContainer = styled.div`
 `;
 
 const ImageSlot = styled.img`
-    width: 550px;
+    width: 100%;
 `;
+
+const ImageAreaContainter = styled.div`
+    flex: 1;
+`
+
+const TextAreaContainer = styled.div`
+    padding: 10px;
+    flex: 1;
+`
 
 const CardHeader = styled.div`
     padding-bottom: 5px;
@@ -36,6 +49,8 @@ const CardHeader = styled.div`
 
 const CardBody = styled.div`
     margin-top: 10px;
+    display: flex;
+
 `;
 
 const Title = styled.div`

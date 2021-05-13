@@ -3,9 +3,8 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import styled from "styled-components";
-
+import { Drawer } from "antd"
 import Header from "./components/Header";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "../src/pages/Home";
@@ -15,8 +14,6 @@ import Detail from "./pages/Detail";
 function App() {
   return (
     <Router>
-      <Navbar />
-
       <Switch>
         <Route path='/detail'>
           <Detail />
@@ -29,7 +26,6 @@ function App() {
           <Home />
         </Route>
       </Switch>
-
       <Footer />
     </Router>
   );
