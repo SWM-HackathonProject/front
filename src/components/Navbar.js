@@ -35,12 +35,12 @@ export default function App() {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink active aria-current='page' href='/about'>
-                <Link to='/about'>About</Link>{" "}
+                <Link to='/about'>About</Link>
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink active aria-current='page' href='/detail'>
-                <Link to='/detail'>Detail</Link>{" "}
+                <Link to='/detail'>Detail</Link>
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>

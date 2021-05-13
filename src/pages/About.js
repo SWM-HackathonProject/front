@@ -2,8 +2,28 @@
 
 import React from "react";
 
-const About = () => {
-  return <a href='https://github.com/SWM-HackathonProject/front'>깃허브</a>;
-};
+import {
+  MDBNavbar,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBContainer,
+  MDBIcon,
+} from "mdb-react-ui-kit";
 
-export default About;
+export default function About() {
+  return (
+    <div className='bg-image '>
+      <img
+        src='https://mdbootstrap.com/img/Photos/Others/images/76.jpg'
+        className='img-fluid'
+        alt='Sample'
+      />
+      <div className='mask' style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
+        <div className='d-flex justify-content-center align-items-center h-100'>
+          <p className='text-white mb-0'>파닥파닥 낚였닥</p>
+        </div>
+      </div>
+    </div>
+  );
+}
