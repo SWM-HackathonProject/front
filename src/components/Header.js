@@ -46,11 +46,10 @@ const Header = () => {
   };
 
   const onKeyPress = (event) => {
-    console.log(event.key);
     if (text) {
       const autoCompleteList = GetAutocompleteList(fishList, text);
       if (event.key == "Enter" && autoCompleteList.length) {
-        history.push(`/detail/${autoCompleteList[0].fishCode}`);
+        window.location.replace(`/detail/${autoCompleteList[0].fishCode}`);
       }
     }
   };
