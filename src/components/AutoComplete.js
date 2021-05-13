@@ -14,7 +14,8 @@ const AutoComplete = ({ text, fishList }) => {
 
 const Container = styled.div`
   width: 100%;
-  height: 100px;
+  height: 100%;
+  margin-left: 5px;
 `;
 
 export default AutoComplete;

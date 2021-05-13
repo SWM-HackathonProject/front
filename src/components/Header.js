@@ -203,9 +203,9 @@ const LinkText = styled(Link)`
 const AbsoluteContainer = styled.div`
   position: absolute;
   z-index: 2;
-  background-color: cyan;
+  background-color: white;
   top: 60px;
-  width: 100%;
+  width: 99%;
 
   @media only screen and (max-width: 1000px) {
     width: 80%;
