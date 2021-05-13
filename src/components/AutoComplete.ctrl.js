@@ -4,7 +4,9 @@ import DefaultImage from "../images/fish.jpg";
 import { apiURL } from "../settings";
 
 // 임시
-const GetList = () => {
+const GetList = (str) => {
+  str = str.trim();
+
   var fishes = [
     {
       fishCode: 0,
