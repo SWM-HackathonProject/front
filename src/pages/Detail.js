@@ -17,7 +17,7 @@ import {
   YAxis,
   HorizontalGridLines,
   VerticalGridLines,
-  VerticalBarSeriesCanvas,
+  VerticalBarSeries,
 } from "react-vis";
 
 import { GetFishInfo } from "./Detail.ctrl";
@@ -82,21 +82,17 @@ function Child() {
 }
 
 // https://github.com/uber/react-vis/blob/premodern/showcase/axes/dynamic-crosshair.js
-function Chart() {
+function Chart({ data }) {
   return (
     <div>
       <XYPlot xType='linear' width={300} height={300}>
         <HorizontalGridLines />
         <VerticalGridLines />
-        <XAxis title='X Axis' />
-        <YAxis title='Y Axis' />
-        <VerticalBarSeriesCanvas
-          data={[
-            { x: 1, y: 3 },
-            { x: 2, y: 5 },
-            { x: 3, y: 15 },
-            { x: 4, y: 12 },
-          ]}
+        <YAxis title='가격 (원/kg)' />
+        <VerticalBarSeries
+          data={data.map((d) => {
+            return { x: d.yearMonth, y: d.price };
+          })}
         />
       </XYPlot>
     </div>
