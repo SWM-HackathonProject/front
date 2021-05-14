@@ -39,7 +39,7 @@ const GetRankings = () => {
 // };
 
 // 임시
-const GetRandom = () => {
+const GetRecommendations = () => {
   var recommendations = [
     {
       fishCode: 611501,
@@ -74,4 +74,4 @@ const GetMaps = async () => {
   return response.data;
 };
 
-export { GetRankings, GetRandom, GetMaps };
+export { GetRankings, GetRecommendations, GetMaps };
