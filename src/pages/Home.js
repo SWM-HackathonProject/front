@@ -49,14 +49,14 @@ const Home = () => {
         </ColumnContainer>
         <WidthSpace />
         <ColumnContainer>
-          <CategoryContainer title='수산시장 위치?'>
-            {mapList}
+          <CategoryContainer title='인기 어종 시세'>
+            {rankingList}
           </CategoryContainer>
         </ColumnContainer>
         <WidthSpace />
         <ColumnContainer>
-          <CategoryContainer title='인기 어종 시세'>
-            {rankingList}
+          <CategoryContainer title='수산시장 위치?'>
+            {mapList}
           </CategoryContainer>
         </ColumnContainer>
       </ContentContainer>
