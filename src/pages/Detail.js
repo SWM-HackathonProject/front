@@ -21,7 +21,6 @@ import {
 } from "react-vis";
 
 import { GetFishInfo } from "./Detail.ctrl";
-
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 
 import ImageCard from "../components/ImageCard";
@@ -65,12 +64,7 @@ function Child() {
     <MDBContainer>
       <MDBRow>
         <MDBCol>
-          <MDBRow center>
-            <div>{fish.fishName}</div>
-          </MDBRow>
-          <MDBRow>
-            <ImageCard src={`/fishImg/${fish.imageURL}.jpeg`} />
-          </MDBRow>
+          <ImageCard title={fish.fishName} src={`/fishImg/${fish.imageURL}.jpeg`} />
         </MDBCol>
         <MDBCol>
           <Chart data={fish.prices} />
@@ -88,10 +82,10 @@ function Chart({ data }) {
       <XYPlot xType='linear' width={300} height={300}>
         <HorizontalGridLines />
         <VerticalGridLines />
-        <YAxis title='가격 (원/kg)' />
+        <YAxis title='가격 (천원/kg)' />
         <VerticalBarSeries
-          data={data.map((d) => {
-            return { x: d.yearMonth, y: d.price };
+          data={data.map((d, i) => {
+            return { x: i, y: d.price/1000 };
           })}
         />
       </XYPlot>
