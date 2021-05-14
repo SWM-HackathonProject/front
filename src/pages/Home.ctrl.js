@@ -8,25 +8,25 @@ import axios from "axios";
 const GetRankings = () => {
   var rankings = [
     {
-      fishCode: 0,
-      fishName: "참돔",
-      imageURL: DefaultImage,
-      description: "랭킹 1등",
-      price: 100,
+      fishCode: 611501,
+      fishName: "광어",
+      imageURL: "/fishImg/611501.jpeg",
+      description: "추천 1",
+      price: 29900,
     },
     {
-      fishCode: 1,
-      fishName: "숭어",
-      imageURL: DefaultImage,
-      description: "랭킹 2등",
-      price: 200,
+      fishCode: 815601,
+      fishName: "연어",
+      imageURL: "/fishImg/815601.jpeg",
+      description: "추천 2",
+      price: 34790,
     },
     {
-      fishCode: 2,
-      fishName: "볼락",
-      imageURL: DefaultImage,
-      description: "랭킹 3등",
-      price: 300,
+      fishCode: 712201,
+      fishName: "참치",
+      imageURL: "/fishImg/712201.jpeg",
+      description: "추천 3",
+      price: 82510,
     },
   ];
 
@@ -39,24 +39,24 @@ const GetRankings = () => {
 // };
 
 // 임시
-const GetRecommendations = () => {
+const GetRandom = () => {
   var recommendations = [
     {
-      fishCode: 0,
-      fishName: "참돔",
-      imageURL: DefaultImage,
+      fishCode: 611501,
+      fishName: "광어",
+      imageURL: "/fishImg/611501.jpeg",
       description: "추천 1",
     },
     {
-      fishCode: 1,
-      fishName: "숭어",
-      imageURL: DefaultImage,
+      fishCode: 815601,
+      fishName: "연어",
+      imageURL: "/fishImg/815601.jpeg",
       description: "추천 2",
     },
     {
-      fishCode: 2,
-      fishName: "볼락",
-      imageURL: DefaultImage,
+      fishCode: 712201,
+      fishName: "참치",
+      imageURL: "/fishImg/712201.jpeg",
       description: "추천 3",
     },
   ];
@@ -74,4 +74,4 @@ const GetMaps = async () => {
   return response.data;
 };
 
-export { GetRankings, GetRecommendations, GetMaps };
+export { GetRankings, GetRandom, GetMaps };

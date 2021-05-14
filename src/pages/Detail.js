@@ -15,10 +15,9 @@ import {
   XYPlot,
   XAxis,
   YAxis,
-  VerticalGridLines,
   HorizontalGridLines,
-  LineSeries,
-  Crosshair,
+  VerticalGridLines,
+  VerticalBarSeriesCanvas,
 } from "react-vis";
 
 import { GetFishInfo } from "./Detail.ctrl";
@@ -84,47 +83,23 @@ function Child() {
 
 // https://github.com/uber/react-vis/blob/premodern/showcase/axes/dynamic-crosshair.js
 function Chart() {
-  const DATA = [
-    [
-      { x: 1, y: 10 },
-      { x: 2, y: 7 },
-      { x: 3, y: 15 },
-    ],
-    [
-      { x: 1, y: 20 },
-      { x: 2, y: 5 },
-      { x: 3, y: 15 },
-    ],
-  ];
-
-  /**
-   * Event handler for onMouseLeave.
-   * @private
-   */
-  const _onMouseLeave = () => {
-    setState({ crosshairValues: [] });
-  };
-
-  /**
-   * Event handler for onNearestX.
-   * @param {Object} value Selected value.
-   * @param {index} index Index of the value in the data array.
-   * @private
-   */
-  const _onNearestX = (value, { index }) => {
-    setState({ crosshairValues: DATA.map((d) => d[index]) });
-  };
-
   return (
-    <XYPlot onMouseLeave={_onMouseLeave} width={300} height={300}>
-      <VerticalGridLines />
-      <HorizontalGridLines />
-      <XAxis />
-      <YAxis />
-      <LineSeries onNearestX={_onNearestX} data={DATA[0]} />
-      <LineSeries data={DATA[1]} />
-      <Crosshair values={state.crosshairValues} className={"test-class-name"} />
-    </XYPlot>
+    <div>
+      <XYPlot xType='linear' width={300} height={300}>
+        <HorizontalGridLines />
+        <VerticalGridLines />
+        <XAxis title='X Axis' />
+        <YAxis title='Y Axis' />
+        <VerticalBarSeriesCanvas
+          data={[
+            { x: 1, y: 3 },
+            { x: 2, y: 5 },
+            { x: 3, y: 15 },
+            { x: 4, y: 12 },
+          ]}
+        />
+      </XYPlot>
+    </div>
   );
 }
 
